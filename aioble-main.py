@@ -9,8 +9,8 @@ import time
 
 
 # Configuración Wi-Fi
-SSID = 'Ti 2.4'
-PASSWORD = 'Lubtr@c2021'
+SSID = ''
+PASSWORD = ''
 
 # Configuración BLE y OBD-II
 device = aioble.Device(aioble.ADDR_PUBLIC, "1c:a1:35:69:8d:c5")
@@ -22,8 +22,6 @@ UUID_2 = bl.UUID(0xfff2)
 API_URL = "http://192.168.100.26:8000/api/company/"
 
 # Funciones
-
-
 def clear_data(data):
     if data == b'\r>':
         data = None
@@ -100,9 +98,6 @@ def error_handle(data):
         number = dec_num - 128
 
     return exist, number
-
-
-data = b'43 01 33 00 00 00 00 \r'
 
 def translate_errors(data):
     data_str = data.decode("utf-8")
